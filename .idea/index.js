@@ -38,6 +38,17 @@ app.get('/me/:id', (req, res)=>{
     });
 });
 
+app.get('/all', (req, res)=>{
+    sql = `SELECT * FROM members`;
+
+    db.all(sql, [], (err, row)=>{
+        if (err)
+            return res.status(500).json({ error: err.message });
+        
+        res.status(200).json(row);
+    });
+});
+
 app.listen(process.env.PORT || 2001, (err)=>{
     if (err) return console.error()
 
