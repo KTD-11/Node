@@ -38,7 +38,7 @@ app.get('/me/:id', (req, res)=>{
     });
 });
 
-app.listen(2001, (err)=>{
+app.listen(process.env.PORT || 2001, (err)=>{
     if (err) return console.error()
 
     console.log("running");
